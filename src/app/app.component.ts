@@ -1,12 +1,6 @@
 import {
-  AfterViewInit,
   Component,
-  ContentChild,
-  ContentChildren,
-  Input,
-  OnInit,
-  ViewChild,
-  ViewChildren
+  ViewChild
 } from '@angular/core';
 import {BoardComponent} from "./gameboard/board/board.component";
 import {DataService} from "./data.service";
