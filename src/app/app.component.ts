@@ -19,11 +19,7 @@ export class AppComponent{
   @ViewChild(BoardComponent) board;
 
   newGame(): void {
-    //let b = new BoardComponent();
-    //b.ngOnInit();
-    //this.board.ngOnInit()
     this.board.reCell()
     this.board.num_cells = new Array(DataService.boardSize**2)
-    console.log(this.board)
   }
 }

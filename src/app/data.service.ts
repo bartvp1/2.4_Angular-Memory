@@ -1,5 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {CellComponent} from "./gameboard/cell/cell.component";
+import {iterator} from "rxjs/internal-compatibility";
 
 @Injectable({
   providedIn: 'root'
@@ -157,7 +158,22 @@ export class DataService implements OnInit{
 
   addScore(naam, speelTijd){
     // Voeg de aangeleverde speeltijd toe aal de lijst met topscores
-    this.topScores.push({name: naam,time: speelTijd});
+    // @ts-ignore
+    let known: boolean = false;
+    this.topScores.forEach((e)=> {
+      if(e.name == naam){
+        known = true;
+      }
+    })
+
+    if(!known) this.topScores.push({name: naam,time: speelTijd})
+    else {
+      this.topScores.forEach((e)=> {
+        if (e.name == naam && speelTijd < e.time) {
+          e.time = speelTijd;
+        }
+      })
+    }
   }
 // knuth array shuffle
   // from https://bost.ocks.org/mike/shuffle/

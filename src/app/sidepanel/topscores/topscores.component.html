@@ -1,4 +1,4 @@
 <b>Top vijf</b>
 <ol id="topscores">
-  <li *ngFor="let entry of this.dataService.sortTopScores()">{{entry.name}}: {{entry.time}} seconds</li>
+  <li *ngFor="let entry of this.dataService.sortTopScores().slice(0,5)">{{entry.name}}: {{entry.time}} seconds</li>
 </ol>
