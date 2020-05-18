@@ -20,7 +20,8 @@
 .sidepanel > * {padding:10px;}
 .header {
   position:absolute;
-  width:fit-content;
+  width: 200px;
+  text-align: center;
   left:120px;
   top:15px;
   padding: 10px;

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-game-timer',
-  templateUrl: './game-timer.component.html',
+  template:'<div id="timeLeft"><div [style.width.%]="this.dataService.width"></div></div>',
   styles: [`
-    button {
+    div#timeLeft {
       background: darkseagreen;
       width: 100%;
       height: 20px;
@@ -12,18 +13,15 @@ import { Component, OnInit } from '@angular/core';
       outline:none;
       border:none;
   }
-  button div {
+  div#timeLeft div {
     background: darkgreen;
-    width:100%;
+    /*width:100%;*/
     height:100%;
   }
   `]
 })
-export class GameTimerComponent implements OnInit {
+export class GameTimerComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(public dataService:DataService) { }
 
 }

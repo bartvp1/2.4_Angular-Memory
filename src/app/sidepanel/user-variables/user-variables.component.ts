@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../data.service";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-user-variables',
@@ -18,8 +19,4 @@ export class UserVariablesComponent implements OnInit {
     let num = event.target.value;
     if(num <= 10 && num >= 0) DataService.boardSize = num;
   }
-  newGame() : void {
-    console.log('new game');
-  }
-
 }
