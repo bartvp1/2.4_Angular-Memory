@@ -1,0 +1,24 @@
+<b>Gemiddelde speeltijd:</b> <span>{{this.dataService.average_time}}s (+{{this.dataService.average_time_added}}s)</span><br/><br/>
+
+<label><b>Karakter op kaarten:  </b>
+  <select name="character" #character (change)="update_character($event)">
+    <option value="*">*</option>
+    <option value="#">#</option>
+    <option value="@">@</option>
+    <option value="&">&</option>
+    <option value="%">%</option>
+    <option value="X">X</option>
+  </select>
+</label>
+
+<br>
+
+<label><b>Afmeting bord:  </b>
+  <select name="size" #size (change)="update_size($event)">
+    <option value=2>2</option>
+    <option value=4>4</option>
+    <option value=6 selected>6</option>
+  </select>
+</label>
+<br>
+<button #opnieuw (click)="newGame()">Nieuw Spel</button>

@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-size:14px;
+  font-family:sans-serif;
+}
+
+:root {
+  --active: 'darkgreen' ;
+  --inactive: 'lime';
+  --found: 'purple';
+}
+
+.sidepanel {
+  position: absolute;
+  left: 500px;
+  top: 150px;
+  width: 300px;
+  padding: 10px;
+  display: inline-grid;
+}
+.sidepanel > * {padding:10px;}
+.header {
+  position:absolute;
+  width:fit-content;
+  left:120px;
+  top:15px;
+  padding: 10px;
+  display: inline-grid;
+}
+app-board {
+  border:1px solid black;
+  position:absolute;
+  left:10px;
+  top:150px;
+  width:400px;
+  height:400px;
+}
+app-cell {
+   display: inline-grid;
+   background:red;
+   text-align: center;
+   font-size: 24px;
+   font-weight: bold;
+ }
+app-cell span {
+  margin:auto;
+  font-size:25px;
+  font-weight: bold;
+}
+app-color-changer button {
+  width:100px;
+  margin-right:10px;
+}
+app-color-changer input {
+  width:100px;
+}
+
+.inactive { background: var(--inactive)}
+.active { background: var(--active)}
+.found { background: var(--found)}
