@@ -1,10 +1,4 @@
-import {
-  Component,
-  ViewChild
-} from '@angular/core';
-import {BoardComponent} from "./gameboard/board/board.component";
-import {DataService} from "./data.service";
-import {Subject} from "rxjs";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'root',
@@ -14,12 +8,5 @@ import {Subject} from "rxjs";
 
 
 export class AppComponent{
-  title = 'Angular Memory';
-
-  @ViewChild(BoardComponent) board;
-
-  newGame(): void {
-    this.board.reCell()
-    this.board.num_cells = new Array(DataService.boardSize**2)
-  }
+  title = "Memory Game with JWT"
 }
