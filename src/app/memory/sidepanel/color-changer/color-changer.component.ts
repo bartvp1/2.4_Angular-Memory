@@ -6,7 +6,6 @@ import {DomSanitizer, SafeStyle} from "@angular/platform-browser";
 @Component({
   selector: 'app-color-changer',
   templateUrl: './color-changer.component.html',
-  styleUrls: ['./color-changer.component.css']
 })
 export class ColorChangerComponent implements OnInit{
   constructor() {}

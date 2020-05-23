@@ -1,19 +1,24 @@
 import {
-  Component,
+  Component, OnInit,
   ViewChild
 } from '@angular/core';
 import {BoardComponent} from "./gameboard/board/board.component";
 import {DataService} from "./data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'memory',
   templateUrl: './memory.component.html',
-  styles: [`b {font-size: 20px}`]
 })
 
 
-export class MemoryComponent{
-  title = 'Angular Memory';
+export class MemoryComponent {
+
+  constructor(private router:Router) {
+    if(!localStorage.getItem('currentUser')){
+      router.navigate(['/'])
+    }
+  }
 
   @ViewChild(BoardComponent) board;
 

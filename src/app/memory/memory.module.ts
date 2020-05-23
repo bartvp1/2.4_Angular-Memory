@@ -6,18 +6,20 @@ import {GameboardModule} from "./gameboard/gameboard.module";
 import {SidepanelModule} from "./sidepanel/sidepanel.module";
 import {HeaderModule} from "./header/header.module";
 import {DataService} from "./data.service";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [
     MemoryComponent,
   ],
-  imports: [
-    BrowserModule,
-    GameboardModule,
-    SidepanelModule,
-    HeaderModule
-  ],
+    imports: [
+        BrowserModule,
+        GameboardModule,
+        SidepanelModule,
+        HeaderModule,
+        MatButtonModule
+    ],
   exports: [
     GameboardModule,
     SidepanelModule,

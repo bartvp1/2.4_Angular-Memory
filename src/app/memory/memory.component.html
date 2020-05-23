@@ -1,15 +1,14 @@
 <div class="header">
-  <b>{{title}}</b>
   <app-status></app-status>
   <app-game-timer></app-game-timer>
 </div>
 
 
-<app-board #boardComponent></app-board>
+<app-board></app-board>
 
 <div class="sidepanel">
   <app-topscores></app-topscores>
   <app-user-variables></app-user-variables>
   <app-color-changer></app-color-changer>
-  <button (click)="newGame()">New Game</button>
+  <button mat-stroked-button (click)="newGame()">New Game</button>
 </div>
