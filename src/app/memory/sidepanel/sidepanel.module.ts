@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatButtonModule} from "@angular/material/button";
+import {ColorPickerModule} from "ngx-color-picker";
 
 
 @NgModule({
@@ -20,12 +21,13 @@ import {MatButtonModule} from "@angular/material/button";
     UserVariablesComponent,
     ColorChangerComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatCardModule,
-    MatChipsModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatCardModule,
+        MatChipsModule,
+        MatButtonModule,
+        ColorPickerModule
+    ]
 })
 export class SidepanelModule { }

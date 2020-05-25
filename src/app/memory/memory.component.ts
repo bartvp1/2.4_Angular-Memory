@@ -1,5 +1,5 @@
 import {
-  Component, OnInit,
+  Component,
   ViewChild
 } from '@angular/core';
 import {BoardComponent} from "./gameboard/board/board.component";
@@ -16,7 +16,7 @@ export class MemoryComponent {
 
   constructor(private router:Router) {
     if(!localStorage.getItem('currentUser')){
-      router.navigate(['/'])
+      router.navigate(['/login'])
     }
   }
 

@@ -17,10 +17,13 @@
     "@angular/compiler": "^9.1.9",
     "@angular/core": "^9.1.9",
     "@angular/forms": "^9.1.9",
+    "@angular/http": "^7.2.16",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "^9.1.9",
     "@angular/platform-browser-dynamic": "^9.1.9",
     "@angular/router": "^9.1.9",
+    "jscolor": "^0.3.0",
+    "ngx-color-picker": "^9.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.13.0",
     "zone.js": "~0.10.2"
@@ -41,7 +44,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
-    "protractor": "~5.4.3",
+    "protractor": "^7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"

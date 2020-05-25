@@ -1,13 +1,19 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../login/authentication.service";
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-welcome',
-  template: 'Welcome<span *ngIf="user">, {{user[\'username\']}}</span>' +
-    '<span *ngIf="!user">, please log in</span>'
+  template: '<span>Welcome, {{welcome_text()}}</span>'
 })
 export class WelcomeComponent {
-  user:string = JSON.parse(localStorage.getItem('currentUser'));
 
-  constructor(public authenticationService:AuthenticationService) { }
+  welcome_text():string{
+    if(AppComponent.logged_in) {
+      return JSON.parse(localStorage.getItem('currentUser')).username;
+    } else {
+      return 'please log in'
+    }
+  };
+
 }

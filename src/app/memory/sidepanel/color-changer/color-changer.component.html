@@ -1,15 +1,11 @@
-<button class="jscolor{valueElement:'valueinactive',styleElement:'styleInactive'}">Kaartkleur</button>
-<input type="hidden" id="valueinactive" (change)="valueChange($event)" [value]="inactive">
-<input id="styleInactive">
+
+<label for="valueinactive">Kaartkleur </label><input [(colorPicker)]="inactive" id="valueinactive" (colorPickerChange)="setColor($event, 'inactive')" [style.background]="inactive">
+<br>
+
+
+<label for="valueactive">Open </label><input [(colorPicker)]="active" id="valueactive" (colorPickerChange)="setColor($event, 'active')" [style.background]="active">
 
 <br>
 
-<button class="jscolor{valueElement:'valueactive',styleElement:'styleActive'}">Open</button>
-<input type="hidden" id="valueactive" (change)="valueChange($event)" [value]="active">
-<input id="styleActive">
+<label for="valuefound">Gevonden </label><input [(colorPicker)]="found" id="valuefound" (colorPickerChange)="setColor($event, 'found')" [style.background]="found">
 
-<br>
-
-<button class="jscolor{valueElement:'valuefound',styleElement:'styleFound'}">Gevonden</button>
-<input type="hidden" id="valuefound" (change)="valueChange($event)" [value]="found">
-<input id="styleFound">

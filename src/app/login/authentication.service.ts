@@ -1,45 +1,41 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {map} from "rxjs/operators";
-import {Router, RouterModule} from "@angular/router";
+import {InterceptedHttp} from "../http/http.interceptor";
+import {Http} from "@angular/http";
+import {AppComponent} from "../app.component";
+import {Router} from "@angular/router";
+import {stringify} from "querystring";
 
 
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
 
-  private currentUserSubject: BehaviorSubject<any>;
   public currentUser;
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-  }
-
-  public get currentUserValue() {
-    return this.currentUserSubject.value;
-  }
+  constructor(private http: Http, private router:Router) {  }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`http://127.0.0.1:5000/api/login`, { username, password })
+
+    return this.http.post(`http://127.0.0.1:5000/api/login`, { username, password })
       .pipe(map(response => {
         // login successful if there's a jwt token in the response
-        if (response && response.token) {
+        if (response.json().message == "ok" && response.json().token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          console.log({username: 'test', token: response['token'], expiresIn: response['expiresIn']})
-          localStorage.setItem('currentUser', JSON.stringify({username: username, token: response['token'], expiresIn: response['expiresIn']}));
-          this.currentUserSubject.next(response);
+          console.log({username: username, token: response.json().token, expiresIn: response.json().expiresIn})
+          localStorage.setItem('currentUser', JSON.stringify({username: username, token: response.json().token, expiresIn: response.json().expiresIn}));
+          AppComponent.logged_in = true;
         }
-
         return response;
       }));
   }
 
   logout() {
-    // remove user from local storage to log user out
     console.log('logout')
+    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
-    window.location.reload()
+    AppComponent.logged_in = false;
+    this.router.navigate(['/'])
   }
 }
