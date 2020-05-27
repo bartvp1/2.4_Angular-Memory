@@ -52,9 +52,6 @@ app-color-changer button {
   width:100px;
   margin-right:10px;
 }
-app-color-changer input {
-  width:100px;
-}
 
 .inactive { background: var(--inactive)}
 .active { background: var(--active)}

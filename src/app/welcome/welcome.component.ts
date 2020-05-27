@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from "../login/authentication.service";
-import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-welcome',
@@ -9,11 +8,10 @@ import {AppComponent} from "../app.component";
 export class WelcomeComponent {
 
   welcome_text():string{
-    if(AppComponent.logged_in) {
+    if(AuthenticationService.logged_in) {
       return JSON.parse(localStorage.getItem('currentUser')).username;
     } else {
       return 'please log in'
     }
   };
-
 }

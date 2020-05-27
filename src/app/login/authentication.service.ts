@@ -1,11 +1,7 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
 import {map} from "rxjs/operators";
-import {InterceptedHttp} from "../http/http.interceptor";
 import {Http} from "@angular/http";
-import {AppComponent} from "../app.component";
 import {Router} from "@angular/router";
-import {stringify} from "querystring";
 
 
 
@@ -16,6 +12,8 @@ export class AuthenticationService {
 
   constructor(private http: Http, private router:Router) {  }
 
+  static logged_in: boolean=!!localStorage.getItem('currentUser');
+
   login(username: string, password: string) {
 
     return this.http.post(`http://127.0.0.1:5000/api/login`, { username, password })
@@ -25,7 +23,7 @@ export class AuthenticationService {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           console.log({username: username, token: response.json().token, expiresIn: response.json().expiresIn})
           localStorage.setItem('currentUser', JSON.stringify({username: username, token: response.json().token, expiresIn: response.json().expiresIn}));
-          AppComponent.logged_in = true;
+          AuthenticationService.logged_in = true;
         }
         return response;
       }));
@@ -35,7 +33,7 @@ export class AuthenticationService {
     console.log('logout')
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    AppComponent.logged_in = false;
+    AuthenticationService.logged_in = false;
     this.router.navigate(['/'])
   }
 }

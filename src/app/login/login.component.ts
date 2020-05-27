@@ -1,20 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+// Source: https://stackblitz.com/edit/angular-8-registration-login-example
+import {Component, OnInit} from '@angular/core';
 import { first } from "rxjs/operators";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthenticationService } from "./authentication.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,7 +21,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
   ) {
     // redirect to home if already logged in
-    if (AppComponent.logged_in) {
+    if (AuthenticationService.logged_in) {
       this.router.navigate(['/']);
     }
   }
@@ -33,9 +31,6 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to form fields

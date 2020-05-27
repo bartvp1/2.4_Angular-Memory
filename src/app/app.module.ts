@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
-
 import {AppComponent} from "./app.component";
 import {MemoryModule} from "./memory/memory.module";
 import {AppRoutingModule} from "./app-routing.module";
@@ -14,8 +12,6 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {RequestOptions, XHRBackend, Http, HttpModule} from "@angular/http";
 import {httpFactory} from "./http/http.httpFactory";
-import {InterceptedHttp} from "./http/http.interceptor";
-import {HttpBackend} from "@angular/common/http";
 
 
 @NgModule({

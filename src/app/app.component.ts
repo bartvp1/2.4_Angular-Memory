@@ -19,12 +19,11 @@ import {Subject} from "rxjs";
 
 export class AppComponent{
   title = "Memory Game"
-  static logged_in: boolean=!!localStorage.getItem('currentUser');
 
   constructor(private authenticationService:AuthenticationService){}
 
   login_status(){
-    return AppComponent.logged_in
+    return AuthenticationService.logged_in
   }
   logout(){
     this.authenticationService.logout()

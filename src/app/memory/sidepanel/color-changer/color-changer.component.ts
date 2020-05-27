@@ -4,6 +4,10 @@ import {ColorPickerModule} from 'ngx-color-picker';
 @Component({
   selector: 'app-color-changer',
   templateUrl: './color-changer.component.html',
+  styles: [`
+    label {width:80px;display:inline-block}
+    input {border: 1px solid black;width:150px;}
+  `]
 })
 export class ColorChangerComponent implements OnInit{
   constructor() {}
